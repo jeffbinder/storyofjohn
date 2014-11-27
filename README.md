@@ -1,0 +1,7 @@
+This is the code for my [entry](https://github.com/dariusk/NaNoGenMo-2014/issues/75) in the [2014 National Novel Generating Month contest](https://github.com/dariusk/NaNoGenMo-2014).  It generates a novel that tells the story of John - that is, the story of every character named John in the Wright American Fiction corpus, merged into one person.
+
+The script works by identifying sentences in the corpus that contain the lemma "John" tagged as a proper name.  For the purposes of consistency, it also standardizes John's last name to "Arbuckle."  It does this by looking for proper names that appear immediately after the token John; once a last name has been identified as belonging to (some) John, it will be replaced by "Arbuckle" for the remainder of the input text.  (Yes, I know that the character's name is spelled "Jon.")
+
+To keep things readable, the script also eliminates sentences that contain an odd number of quotation marks.
+
+There are two versions of this script.  The first outputs the sentences in the order in which they appear in the corpus, with a "chapter" for each text and a paragraph for each division within the texts.  The second mixes the texts together, ordering the sentences based on how far through the text they appear, so that sentences from the early parts of a novel will tend to appear near te beginning of the output, etc.  This version creates paragraph breaks based on the patterns of quotation marks, and starts new chapters whenever it has passed chapter breaks in all of the input texts.
